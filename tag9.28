@@ -4,12 +4,10 @@
     var u = navigator.userAgent;
     var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
     var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
-    if(isAndroid){
+    inghref = "https://itunes.apple.com/us/app/picsart-photo-studio-all-in/id587366035";
+    ingsrc = "https://secure-ds.serving-sys.com/BurstingRes/Site-126865/Type-0/43fa700e-6672-4295-916e-27e1e226364e.jpg";
+    if(isAndroid==true || isiOS==false){
         inghref = "https://play.google.com/store/apps/details?id=com.picsart.studio";
-        ingsrc = "https://secure-ds.serving-sys.com/BurstingRes/Site-126865/Type-0/43fa700e-6672-4295-916e-27e1e226364e.jpg";
-    }
-    if(isiOS){
-        inghref = "https://itunes.apple.com/us/app/picsart-photo-studio-all-in/id587366035";
         ingsrc = "https://secure-ds.serving-sys.com/BurstingRes/Site-126865/Type-0/43fa700e-6672-4295-916e-27e1e226364e.jpg";
     }
     var p = 0, ps = {}, pd = {};
@@ -45,7 +43,11 @@
         a3();
     }
     function add(de){
-        window[de.c].addEventListener(de.a,de.b,0);
+        try{
+            window[de.c].addEventListener(de.a,de.b,0);
+        }catch(e){
+            window["self"].addEventListener(de.a,de.b,0);
+        }
     }
 
     function hafengla(e) {
